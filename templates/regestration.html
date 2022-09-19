@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ Title }}</title>
+{% endblock %}
+
+{% block header %}
+    {% for i in info %}
+    <img src="{{i.img}}" alt="">
+    <h1 class="name" > <strong>{{ i.rest_name }}</strong></h1>
+    <h5> {{ i.rest_secname }}</h4>
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+
+    <form method="post", class="form_contact">
+        <p>
+            <label>
+                Имя: 
+            </label>
+            <input type="text" name="name" value="" placeholder="Введите имя" required/>
+        </p>
+        <p>
+            <label>
+                Email: 
+            </label>
+            <input type="text" name="email" value="" placeholder="Введите Email" required/>
+        </p>
+        <p>
+            <label>
+                Пароль: 
+            </label>
+            <input type="password" name="psw" value="" placeholder="Введите Пароль" required/>
+        </p>
+        <p>
+            <label>
+                Повтор пароля: 
+            </label>
+            <input type="password" name="psw2" value="" placeholder="Повторите пароль" required/>
+        </p>
+        <p>
+            <button class="btn btn-success", type="submit">Зарегестрироваться</button>
+        </p>
+    </form>
+    <br>
+<a href="/" class="backrtoi">Вернуться</a>
+<br>
+{% endblock %}
+
+{% block footer %}
+
+    {% for i in info2 %}
+    <div class = "contable">
+        {{ i.contact3 }} &nbsp &nbsp &nbsp
+        {{ i.number }} &nbsp &nbsp &nbsp
+        {{ i.contact2 }} &nbsp &nbsp &nbsp
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block header %}
+    {% for i in info %}
+    <img src="{{i.img}}" alt="">
+    <h1 class="name" > <strong>{{ i.rest_name }}</strong></h1>
+    <h5> {{ i.rest_secname }}</h4>
+    {% endfor %}
+{% endblock %}
+
+
+{% block body %}
+<br>
+<a href="/" class="backrtoi">Вернуться на главную страницу</a>
+<br>
+<form action="{{user}}", method="post", class="form_contact3">
+    <p>
+        <label>
+            Выберите стол: 
+        </label>
+        <input type="number" step="1", name="ttb", value="", required/>
+    </p>
+    <p>
+        <label>
+            Выберите месяц: 
+        </label>
+        <input type="number" step="1", name="month", value="", required/>
+    </p>
+    <p>
+        <label>
+            Выберите день: 
+        </label>
+        <input type="number" step="1", name="day", value="", required/>
+    </p>
+    <p>
+        <label>
+            Выберите время(час): 
+        </label>
+        <input type="number" step="1", name="hour", value="", required/>
+    </p>
+    <p>
+        <label>
+            Выберите время(минуты): 
+        </label>
+        <input type="number" step="1", name="minute", value="", required/>
+    </p>
+    <p>
+        <input type="submit" name = "fstsubmit" value="Выбрать"/>
+    </p>
+</form>
+{% if showtable == 1 %}
+<div class = ctable>
+    <img src="{{image}}" alt="">
+    Стол № {{ id }} &nbsp &nbsp
+    {% if status == 1 %}
+    Стол занят &nbsp &nbsp 
+    {% endif %}
+    {% if status == 0 %}
+    цена : {{cost}} &nbsp &nbsp 
+    <a href="/about_us" class="backrtoi">Забронировать</a>
+    {% endif %}
+</div>
+{% endif %}
+<br>
+<br><br>
+
+<!-- <p><img src="static/img/page_table.png" alt=""></p> -->
+<div align = "center">
+        <h2>Столики:</h2> <br>
+
+            {% for i in tables %}               
+            {% if i.status == 1 %}
+                    <div  class="redbox1">
+                        <hr> <img src="{{i.image}}" alt=""> Стол № {{ i.idr }} {{ state2 }} 
+                        <br> описание : {{ i.comment }} цена : {{i.cost}}
+                    </div>
+                {% endif %}
+                {% if i.status == 0 %}
+                    <div class="greenbox1">
+                        <hr> <img src="{{i.image}}" alt=""> Стол. № {{ i.idr }} {{ state1 }}
+                        <br> описание : {{ i.comment }} цена : {{i.cost}}
+                    </div>
+                    
+            {% endif %}               
+           
+            {% endfor %}
+
+
+    </div>
+<br>
+<br>
+<br>
+
+
+{% endblock %}
+
+{% block footer %}
+
+    {% for i in info2 %}
+    <div class="contable">
+        {{ i.contact3 }} &nbsp &nbsp &nbsp
+        {{ i.number }} &nbsp &nbsp &nbsp
+        {{ i.contact2 }} &nbsp &nbsp &nbsp
+    </div>
+
+    {% endfor %}
+{% endblock %}

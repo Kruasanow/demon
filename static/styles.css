@@ -1,0 +1,86 @@
+body {
+    color: red;
+}
+/* .table-places {
+    border:1px solid black;
+} */
+table, td, tr {
+    border:1px solid rgb(0, 0, 0);
+    font-size: small;
+}
+
+.t20min {
+    color: red;
+}
+
+.main_table {
+    height: 80%;
+}
+
+.head_t {
+    display: inline-block;
+}
+
+.redbox {
+    background-color: red;
+    color: red;
+}
+.greenbox {
+    background-color: green;
+    color: green;
+}
+.cover-container .mb-auto {
+    background-color: rgb(139, 134, 134);
+}
+.cover-container .mt-auto {
+    background-color: rgb(139, 134, 134);
+}
+.pip {
+    color: white;
+    text-decoration:none;
+    font-weight: bold;
+    font-size: 20px;
+}
+.name {
+    font-size: 55px;
+}
+.az {
+    text-decoration:none;
+    color: red;
+}
+.choose_table {
+    font-size: 45px;
+}
+.reg {
+    text-decoration:none;
+    color: white;
+    font-size: 25px;
+}
+.ctable {
+    display: inline-block; 
+    background-color: teal;
+    font-size: 30px;
+}
+.contable {
+    display: inline-block;
+    font-size: 25px; 
+}
+.restlist {
+    text-decoration:none;
+    color: red;
+}
+
+.backrtoi {
+    display: inline-block;
+    font-size: 25px; 
+    color: red;
+}
+
+.redbox1 {
+    color: red;
+    font-size: 35px;
+}
+.greenbox1 {
+    color: green;
+    font-size: 35px;
+}

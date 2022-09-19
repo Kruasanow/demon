@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ Title }}</title>
+{% endblock %} 
+
+{% block header %}
+    {% for i in info %}
+    <img src="{{i.img}}" alt="">
+    <h1 class="name" > <strong>{{ i.rest_name }}</strong></h1>
+    <h5> {{ i.rest_secname }}</h4>
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+{% if var == 2 %}
+<h2>Пожалуйста пройдите <a href="/regestration" class="az">Регистрацию</a> </h2>
+<h2>или  <a href="/login" class="az">Авторизуйтесь</a> </h2>
+{% endif %}
+<br>
+
+{% for i in head %}
+        <div class="head_t">
+            <img src="{{ i.img }}" alt="" width="50px" height="50px">  {{i.rest_name}}
+        </div>
+
+{% endfor %}
+<br>
+{% if ur == 0 %}
+<form action="/", method="post", class="form_contact1">
+    <p>
+        <label>
+            Укажите возраст: 
+        </label>
+        <input type="text", name="choose_rest", value="", required/>
+    </p>
+    <p>
+        <input type="submit" value="Выбрать"/>
+    </p>
+</form>
+{% endif %}
+    <div>
+        {% for i in rest %}
+        <hr> <img src="{{i.img}}" alt=""> <h3>{{i.rest_name }}</h3> <br> 
+        <h5>{{i.rest_secname}}</h5><hr>
+        {% endfor %}
+    </div>
+    <div align = "center">
+    <h1>
+        {% if  var == 2 %}
+        <p class="choose_table">Столики:</p>
+        {% endif %}
+        {% if var == 1 %}
+        <h1>Выберите ресторан из предложенных</h1>
+        <a href="/" ><h1 class="restlist">Показать список ресторанов</h1></a>
+        {% endif %}
+
+        <div class = "main_table">
+            <img src="static/img/page_table.png" height="800px" width="1000px" alt="">
+
+        </div>
+
+        {% for i in tables %}         
+
+            {% if i.status == 1 %}
+                    <div>
+                        <hr> <img src="{{i.image}}" alt="none" class="redbox"> Стол № {{ i.idr }} {{ state2 }} 
+                        <br> описание : {{ i.comment }} <br>
+                        цена - {{ i.cost }}
+                    </div>
+                {% endif %}
+                {% if i.status == 0 %}
+                    <div>
+                        <hr> <img src="{{i.image}}" alt="none" class="greenbox"> Стол. № {{ i.idr }} {{ state1 }}
+                        <br> описание : {{ i.comment }} <br>
+                        цена - {{ i.cost }}
+                    </div>
+                    
+            {% endif %}            
+        {% endfor %}
+
+
+    </h1>
+    </div>
+    <br>
+    <br>
+    <br>
+{% endblock %}
+
+{% block footer %}
+
+    {% for i in info2 %}
+    <div class = "contable">
+        {{ i.contact3 }} &nbsp &nbsp &nbsp
+        {{ i.number }} &nbsp &nbsp &nbsp
+        {{ i.contact2 }} &nbsp &nbsp &nbsp
+    </div>
+
+    {% endfor %}
+{% endblock %}
+

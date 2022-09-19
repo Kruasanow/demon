@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>{{Title}}</title>
+{% endblock %}
+{% block body %}
+    <h2>Стол {{ cht }} забронирован</h2>
+    <h2>Время бронирования - </h2><h2 class="t20min">{{time}}</h2><h2></h2>
+    <h2>Бронирование действует </h2> <h2 class = "t20min">20 минут</h2><h2> с момента наступления времени заказа</h2>
+    <a href="/user/{{u}}" class="redbox1">Вернуться</a>
+
+{% endblock %}
